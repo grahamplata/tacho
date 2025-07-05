@@ -1,4 +1,4 @@
-module github.com/grahamplata/wow-kewl
+module github.com/grahamplata/tacho
 
 go 1.24.2
 

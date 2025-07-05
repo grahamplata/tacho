@@ -1,8 +1,8 @@
 package scenes
 
 import (
-	"github.com/grahamplata/wow-kewl/pkg/scene"
-	"github.com/grahamplata/wow-kewl/pkg/state"
+	"github.com/grahamplata/tacho/pkg/scene"
+	"github.com/grahamplata/tacho/pkg/state"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
