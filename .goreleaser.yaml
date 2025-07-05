@@ -8,6 +8,8 @@
 
 version: 2
 
+project_name: tacho
+
 before:
   hooks:
     # You may remove this if you don't use go modules.
@@ -16,15 +18,30 @@ before:
     - go generate ./...
 
 builds:
-  - env:
-      - CGO_ENABLED=0
+  - id: tacho
+    env:
+      - CGO_ENABLED=1
     goos:
       - linux
       - windows
       - darwin
+    goarch:
+      - amd64
+      - arm64
+    # Exclude combinations that don't work with CGO/Ebiten
+    ignore:
+      - goos: windows
+        goarch: arm64
+    # Ensure assets are embedded
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}}
+    binary: tacho
 
 archives:
-  - formats: [tar.gz]
+  - id: tacho
+    formats: [tar.gz]
     # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
       {{ .ProjectName }}_
@@ -37,6 +54,14 @@ archives:
     format_overrides:
       - goos: windows
         formats: [zip]
+    files:
+      - README.md
+      - LICENSE*
+      - config.json.example
+
+checksum:
+  name_template: 'checksums.txt'
+  algorithm: sha256
 
 changelog:
   sort: asc

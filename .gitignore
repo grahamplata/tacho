@@ -14,6 +14,7 @@ go.work.sum
 !dummy.metallib
 
 config.json
+!config.json.example
 *.log
 # Added by goreleaser init:
 dist/
