@@ -1,14 +1,14 @@
-# Wow Kewl Starter
+# Tacho
 
-A quick and dirty, Ebiten-based starter for Go.  
+A gauge cluster project built with [ebiten](https://ebitengine.org/) 🦐  
 
 ## Getting Started
 
 ### Build & Run
 
 ```sh
-go build -o wow-kewl
-./wow-kewl
+go build -o tacho
+./tacho
 ```
 
 #### Optional Flags

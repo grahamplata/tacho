@@ -15,3 +15,5 @@ go.work.sum
 
 config.json
 *.log
+# Added by goreleaser init:
+dist/
