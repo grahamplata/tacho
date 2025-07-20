@@ -1,15 +1,19 @@
 package scenes
 
 import (
+	"github.com/grahamplata/tacho/assets"
+	"github.com/grahamplata/tacho/helpers"
 	"github.com/grahamplata/tacho/pkg/scene"
-	"github.com/grahamplata/tacho/pkg/state"
+	"github.com/grahamplata/tacho/state"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
+	"github.com/hajimehoshi/ebiten/v2/text/v2"
 )
 
 // HomeScreenScene is a simple implementation of a Scene that represents the start screen.
 type HomeScreenScene struct {
 	id         string
+	face       *text.GoTextFace
 	gameState  *state.GameState
 	controller scene.SceneController[*state.GameState]
 }
@@ -17,7 +21,8 @@ type HomeScreenScene struct {
 // NewHomeScreenScene creates a new HomeScreenScene instance.
 func NewHomeScreenScene() *HomeScreenScene {
 	return &HomeScreenScene{
-		id: "Home",
+		id:   "Home",
+		face: assets.SharedTitleFace,
 	}
 }
 
@@ -36,8 +41,20 @@ func (l *HomeScreenScene) Layout(outsideWidth, outsideHeight int) (screenWidth, 
 
 // Draw renders the home screen scene to the provided image.
 func (l *HomeScreenScene) Draw(screen *ebiten.Image) {
-	if l.gameState != nil && l.gameState.DebugMode {
-		scene.DrawDebugInfo(screen, l.gameState.DebugMode, l.id)
+	message := "Welcome"
+	centerX := float64(screen.Bounds().Dx()) / 2
+	centerY := float64(screen.Bounds().Dy()) / 2
+
+	welcomeWidth, _ := text.Measure(message, l.face, 0)
+
+	welcomeOptions := &text.DrawOptions{}
+	welcomeOptions.GeoM.Translate(centerX-welcomeWidth/2, centerY-25)
+
+	// Draw the title and subtitle on the screen
+	text.Draw(screen, message, l.face, welcomeOptions)
+
+	if l.gameState != nil && l.gameState.Enabled {
+		helpers.DrawDebugInfo(screen, l.gameState)
 	}
 }
 

@@ -1,6 +1,8 @@
 package scene
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"github.com/hajimehoshi/ebiten/v2"
+)
 
 // Controller is a struct that manages the current scene in the game.
 type Controller[T any] struct {

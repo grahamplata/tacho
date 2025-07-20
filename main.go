@@ -6,8 +6,8 @@ import (
 
 	"github.com/grahamplata/tacho/pkg/config"
 	"github.com/grahamplata/tacho/pkg/scene"
-	"github.com/grahamplata/tacho/pkg/state"
 	"github.com/grahamplata/tacho/scenes"
+	"github.com/grahamplata/tacho/state"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
