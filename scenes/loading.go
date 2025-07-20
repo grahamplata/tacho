@@ -1,9 +1,9 @@
 package scenes
 
 import (
-	"github.com/grahamplata/wow-kewl/assets"
-	"github.com/grahamplata/wow-kewl/pkg/scene"
-	"github.com/grahamplata/wow-kewl/pkg/state"
+	"github.com/grahamplata/tacho/assets"
+	"github.com/grahamplata/tacho/pkg/scene"
+	"github.com/grahamplata/tacho/state"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"github.com/hajimehoshi/ebiten/v2/text/v2"
@@ -88,10 +88,6 @@ func (l *LoadingScreenScene) Draw(screen *ebiten.Image) {
 	// Draw the title and subtitle on the screen
 	text.Draw(screen, l.title, l.face, titleOptions)
 	text.Draw(screen, l.subtitle, l.face, subtitleOptions)
-
-	if l.state != nil && l.state.DebugMode {
-		scene.DrawDebugInfo(screen, l.state.DebugMode, "Loading")
-	}
 }
 
 // OnEnter is called when the loading screen scene becomes active.

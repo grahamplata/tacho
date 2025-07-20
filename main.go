@@ -4,10 +4,10 @@ import (
 	"flag"
 	"log"
 
-	"github.com/grahamplata/wow-kewl/pkg/config"
-	"github.com/grahamplata/wow-kewl/pkg/scene"
-	"github.com/grahamplata/wow-kewl/pkg/state"
-	"github.com/grahamplata/wow-kewl/scenes"
+	"github.com/grahamplata/tacho/pkg/config"
+	"github.com/grahamplata/tacho/pkg/scene"
+	"github.com/grahamplata/tacho/scenes"
+	"github.com/grahamplata/tacho/state"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 

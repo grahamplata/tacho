@@ -1,0 +1,10 @@
+{
+  "ID": "default",
+  "ScreenWidth": 1280,
+  "ScreenHeight": 720,
+  "TargetFPS": 60,
+  "Vsync": true,
+  "Title": "Tacho",
+  "Fullscreen": false,
+  "DebugMode": false
+}
